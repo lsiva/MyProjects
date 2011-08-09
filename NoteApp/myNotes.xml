@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.5.0_11" class="java.beans.XMLDecoder"> 
+ <object id="Notebook0" class="Notebook"> 
+  <void property="notes"> 
+   <void method="add"> 
+    <object id="Note0" class="Note"> 
+     <void property="linksFrom"> 
+      <void method="add"> 
+       <object id="Note1" class="Note"> 
+        <void property="linksTo"> 
+         <void method="add"> 
+          <object id="Note2" class="Note"> 
+           <void property="linksFrom"> 
+            <void method="add"> 
+             <object idref="Note1"/> 
+            </void> 
+           </void> 
+           <void property="notebookRef"> 
+            <object idref="Notebook0"/> 
+           </void> 
+           <void property="tags"> 
+            <void method="add"> 
+             <object id="Tag0" class="Tag"> 
+              <void property="tag"> 
+               <string>Notebook&apos;s Tag</string> 
+              </void> 
+             </object> 
+            </void> 
+           </void> 
+           <void property="title"> 
+            <string>TestLink3</string> 
+           </void> 
+          </object> 
+         </void> 
+         <void method="add"> 
+          <object idref="Note0"/> 
+         </void> 
+        </void> 
+        <void property="notebookRef"> 
+         <object idref="Notebook0"/> 
+        </void> 
+        <void property="tags"> 
+         <void method="add"> 
+          <object id="Tag1" class="Tag"> 
+           <void property="tag"> 
+            <string>TestTag3</string> 
+           </void> 
+          </object> 
+         </void> 
+         <void method="add"> 
+          <object idref="Tag0"/> 
+         </void> 
+        </void> 
+        <void property="title"> 
+         <string>TestNote3</string> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="linksTo"> 
+      <void method="add"> 
+       <object id="Note3" class="Note"> 
+        <void property="linksFrom"> 
+         <void method="add"> 
+          <object idref="Note0"/> 
+         </void> 
+        </void> 
+        <void property="notebookRef"> 
+         <object idref="Notebook0"/> 
+        </void> 
+        <void property="tags"> 
+         <void method="add"> 
+          <object idref="Tag0"/> 
+         </void> 
+        </void> 
+        <void property="title"> 
+         <string>TestLink1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object id="Note4" class="Note"> 
+        <void property="linksFrom"> 
+         <void method="add"> 
+          <object idref="Note0"/> 
+         </void> 
+        </void> 
+        <void property="linksTo"> 
+         <void method="add"> 
+          <object id="Note5" class="Note"> 
+           <void property="linksFrom"> 
+            <void method="add"> 
+             <object idref="Note4"/> 
+            </void> 
+           </void> 
+           <void property="notebookRef"> 
+            <object idref="Notebook0"/> 
+           </void> 
+           <void property="tags"> 
+            <void method="add"> 
+             <object idref="Tag0"/> 
+            </void> 
+           </void> 
+           <void property="title"> 
+            <string>TestLink2</string> 
+           </void> 
+          </object> 
+         </void> 
+        </void> 
+        <void property="notebookRef"> 
+         <object idref="Notebook0"/> 
+        </void> 
+        <void property="tags"> 
+         <void method="add"> 
+          <object id="Tag2" class="Tag"> 
+           <void property="tag"> 
+            <string>TestTag2</string> 
+           </void> 
+          </object> 
+         </void> 
+         <void method="add"> 
+          <object id="Tag3" class="Tag"> 
+           <void property="tag"> 
+            <string>TestTag4</string> 
+           </void> 
+          </object> 
+         </void> 
+         <void method="add"> 
+          <object idref="Tag0"/> 
+         </void> 
+        </void> 
+        <void property="title"> 
+         <string>TestNote2</string> 
+        </void> 
+       </object> 
+      </void> 
+     </void> 
+     <void property="notebookRef"> 
+      <object idref="Notebook0"/> 
+     </void> 
+     <void property="tags"> 
+      <void method="add"> 
+       <object id="Tag4" class="Tag"> 
+        <void property="tag"> 
+         <string>TestTag1</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="add"> 
+       <object idref="Tag0"/> 
+      </void> 
+     </void> 
+     <void property="title"> 
+      <string>TestNote1</string> 
+     </void> 
+    </object> 
+   </void> 
+   <void method="add"> 
+    <object idref="Note4"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Note1"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Note3"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Note5"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Note2"/> 
+   </void> 
+  </void> 
+  <void property="tags"> 
+   <void method="add"> 
+    <object idref="Tag4"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Tag2"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Tag1"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Tag3"/> 
+   </void> 
+   <void method="add"> 
+    <object idref="Tag0"/> 
+   </void> 
+  </void> 
+ </object> 
+</java> 
