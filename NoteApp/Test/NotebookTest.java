@@ -119,8 +119,8 @@ public class NotebookTest {
 	}
 	
 	@Test(expected= src.exception.NoSuchNoteException.class)
-	public void testNoSuchLinkException() throws NoSuchNoteException, NoSuchLinkException {
-		Note exceptionNote = createNote("TestLinkException", null);		
+	public void testNoSuchNoteException() throws NoSuchNoteException, NoSuchLinkException {
+		Note exceptionNote = createNote("TestNoteException", null);		
 		nb1.removeNote(exceptionNote);
 		
 	}
