@@ -15,6 +15,7 @@ import bankApp.response.AccountOpenSuccessResponse;
 import bankApp.response.BalanceResponse;
 import bankApp.response.FailureResponse;
 import bankApp.response.Response;
+import bankApp.common.BankAppConstants;
 
 public class TestBankApp {
 	Amount zeroAmount = new Amount(0);
@@ -65,9 +66,11 @@ public class TestBankApp {
 	@Test
 	public void testDeposit() {
 		new BankAtm().deposit(richAccount.getAccountNumber(), bigAmount);
-		assertEquals(Bank.getAccount(richAccount.getAccountNumber()).getBalance(), bigAmount);
+		assertEquals(Bank.getAccount(richAccount.getAccountNumber())
+				.getBalance(), bigAmount);
 		new BankAtm().deposit(popperAccount.getAccountNumber(), smallAmount);
-		assertEquals(Bank.getAccount(popperAccount.getAccountNumber()).getBalance(), smallAmount);
+		assertEquals(Bank.getAccount(popperAccount.getAccountNumber())
+				.getBalance(), smallAmount);
 
 	}
 
@@ -93,55 +96,54 @@ public class TestBankApp {
 	public void testOverdraft() {
 		Response response = new BankAtm().withdraw(popperAccount
 				.getAccountNumber(), bigAmount);
-		System.out.println(((FailureResponse)response).getErrorMessage());
+		assertTrue(((FailureResponse) response).getErrorMessage().equals(BankAppConstants.WITHDRAWL_IN_OVERDRAFT));
 		assertTrue(response.getClass().getName().equals(
 				"bankApp.response.FailureResponse"));
 		assertEquals(Bank.getAccount(popperAccount.getAccountNumber())
 				.getBalance(), smallAmount);
 	}
-	
+
 	@Test
-	public void testAccountClosure(){
-		Integer zeroBalanceAcctNumber = zeroBalanceAccount.getAccountNumber();	
+	public void testAccountClosure() {
+		Integer zeroBalanceAcctNumber = zeroBalanceAccount.getAccountNumber();
 		Bank.closeAccount(zeroBalanceAccount.getAccountNumber());
-		assertFalse(Bank.checkAccountNumber(zeroBalanceAcctNumber));
-		
-		//transactions against a closed account fail
-		Response balanceResponse = new BankAtm().balanceInquiry(zeroBalanceAcctNumber);
+		assertFalse(Bank.checkAccountNumber(zeroBalanceAcctNumber));		
+		// transactions against a closed account should fail
+		Response balanceResponse = new BankAtm()
+				.balanceInquiry(zeroBalanceAcctNumber);
 		assertTrue(balanceResponse.getClass().getName().equals(
 				"bankApp.response.FailureResponse"));
-		
+
 	}
-	
+
 	@Test
-	public void testAccountClosureFailure(){
-		Integer popperAcctNumber = popperAccount.getAccountNumber();	
-		Bank.closeAccount(popperAccount.getAccountNumber());
+	public void testAccountClosureFailure() {
+		Integer popperAcctNumber = popperAccount.getAccountNumber();
+		Response response = Bank.closeAccount(popperAccount.getAccountNumber());
+		assertTrue(((FailureResponse) response).getErrorMessage().equals(BankAppConstants.NO_ZERO_BALANCE));
+		//account is not closed since it does not have a zero balance
 		assertTrue(Bank.checkAccountNumber(popperAcctNumber));
 	}
-	
+
 	@Test
-	public void testAccountTransfer(){
-		new BankAtm().acctTransfer(richAccount.getAccountNumber(), popperAccount.getAccountNumber(), new Amount(10000));
+	public void testAccountTransfer() {
+		new BankAtm().acctTransfer(richAccount.getAccountNumber(),
+				popperAccount.getAccountNumber(), new Amount(10000));
 		assertEquals(Bank.getAccount(popperAccount.getAccountNumber())
 				.getBalance(), new Amount(10025));
 		assertEquals(Bank.getAccount(richAccount.getAccountNumber())
 				.getBalance(), new Amount(15000));
 	}
-	
+
 	@Test
-	public void testAccountTransferFailure(){
-		System.out.println(Bank.getAccount(popperAccount.getAccountNumber())
-				.getBalance().getValue());
-		System.out.println(Bank.getAccount(richAccount.getAccountNumber())
-				.getBalance().getValue());
-		Response response = new BankAtm().acctTransfer(popperAccount.getAccountNumber(), richAccount.getAccountNumber(), new Amount(20000));
+	public void testAccountTransferFailure() {
+		Response response = new BankAtm().acctTransfer(popperAccount
+				.getAccountNumber(), richAccount.getAccountNumber(),
+				new Amount(20000));
 		assertTrue(response.getClass().getName().equals(
-		"bankApp.response.FailureResponse"));
-		System.out.println(Bank.getAccount(popperAccount.getAccountNumber())
-				.getBalance().getValue());
-		System.out.println(Bank.getAccount(richAccount.getAccountNumber())
-				.getBalance().getValue());
+				"bankApp.response.FailureResponse"));
+		assertTrue(((FailureResponse) response).getErrorMessage().equals(
+				BankAppConstants.WITHDRAWL_IN_OVERDRAFT));
 		assertEquals(Bank.getAccount(popperAccount.getAccountNumber())
 				.getBalance(), new Amount(10025));
 		assertEquals(Bank.getAccount(richAccount.getAccountNumber())

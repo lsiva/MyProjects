@@ -1,4 +1,4 @@
-package bankApp.Common;
+package bankApp.common;
 
 public class BankAppConstants {
 	public static final String INVALID_ACCOUNT = "Account Number does not exist";

@@ -1,7 +1,7 @@
 package bankApp.transaction;
 
 import bankApp.Amount;
-import bankApp.Common.TransactionType;
+import bankApp.common.TransactionType;
 
 public class AccountTransferTransaction extends Transaction {
 	

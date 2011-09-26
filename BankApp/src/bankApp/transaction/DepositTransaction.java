@@ -1,7 +1,7 @@
 package bankApp.transaction;
 
 import bankApp.Amount;
-import bankApp.Common.TransactionType;
+import bankApp.common.TransactionType;
 import bankApp.exception.TransactionException;
 
 public class DepositTransaction extends Transaction {

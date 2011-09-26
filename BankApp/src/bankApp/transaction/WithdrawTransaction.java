@@ -2,8 +2,8 @@ package bankApp.transaction;
 
 import bankApp.Amount;
 import bankApp.Bank;
-import bankApp.Common.BankAppConstants;
-import bankApp.Common.TransactionType;
+import bankApp.common.BankAppConstants;
+import bankApp.common.TransactionType;
 import bankApp.exception.TransactionException;
 
 public class WithdrawTransaction extends Transaction{

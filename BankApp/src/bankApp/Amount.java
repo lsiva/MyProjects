@@ -45,7 +45,8 @@ public class Amount implements Comparable<Object> {
 		Amount amount = (Amount) obj;
 		return value == amount.value;
 	}
-
+	
+	@Override
 	public int hashCode() {
 		int hash = 7;
 		hash = 31 * hash + value;

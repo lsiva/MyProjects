@@ -3,7 +3,7 @@ package bankApp;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import bankApp.Common.BankAppConstants;
+import bankApp.common.BankAppConstants;
 import bankApp.exception.TransactionException;
 import bankApp.response.AccountOpenSuccessResponse;
 import bankApp.response.BalanceResponse;

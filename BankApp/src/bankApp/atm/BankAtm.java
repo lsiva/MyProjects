@@ -2,7 +2,7 @@ package bankApp.atm;
 
 import bankApp.Amount;
 import bankApp.Bank;
-import bankApp.Common.TransactionType;
+import bankApp.common.TransactionType;
 import bankApp.response.Response;
 import bankApp.transaction.TransactionFactory;
 

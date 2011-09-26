@@ -1,7 +1,7 @@
 package bankApp.transaction;
 
 import bankApp.Amount;
-import bankApp.Common.TransactionType;
+import bankApp.common.TransactionType;
 
 public class TransactionFactory {
 	public static Transaction createTransaction(TransactionType message, Integer accountNumber, Integer accountToNumber, Amount transactionAmount){
